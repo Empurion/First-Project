@@ -1,0 +1,336 @@
+                // daarvoor query ik de user table om die value te krijgen. en te verhogen
+                // name is voldoende aangezien dat de colom naam is?
+                // hoe doe ik dat beter dan?
+                // wacht ik show de tabel in discord
+                // smfh ik gebruikte eerst php myadmin. Maar nu niet meer dus ff kijken hoe ik de dabase connect sinds die mysql command niet snapt :^) ben aant fixen
+                // graag
+                // ik kan php my admin niet aanzetten. Want dat gaat kloten met mijn unifi controller. zo had ik de laatste 2 dagen geen internet :^)
+                // kan je het niet in een soort sandbox stoppen met docker?
+                // php niet. maar de apache service. Ik zou de poort moeten aanpassen van unifi. Maar not sure how yet. MAar ik ga dit sws allemaal naar mijn linux pc migreren morgen.
+
+                // vvvvvvv wot
+                //yesss :D
+                // laten we een keer gaan zitten om het concept wat makkelijker voor je te maken. Als je db schema al goed is en een soort framework heb opgezet dan kan je sneller aan de gang met dit soort stuff
+                // Maar je bent dus een discord game aan het maken? <-------
+                // Tip 1: zorg ervoor dat je een schaalbare db model hebt :DD
+                // is goed :D:D
+
+                // Dan help ik hier en daar wel mee , als je dat wilt
+                // heb zelf ondervonden dat bij programmeren niet om hulp vragen killer is.....
+                // Dan zit je heel lang op een probleem en dan kom je niet vooruit :p 
+                // yeh exact hahaha. 
+                // Ik stel voor om binnenkort dan even te zitten, want ik zie het probleem wel en niet zeg maar. Het probleem is dat je code niet helemaal goed was waardoor hij problemen vooroorzaakte, maar om het op te lossen is het handiger om een beter beeld te hebben en je wat tips te geven qua db ontwerpen. 
+                // Als ik je returns mag geloven maak je geen gebruik van fk's? fk's? precies
+                // foreign keys 
+                // heb bijna nergens return staan tho? Of is dat niet wat je precies bedoelt. Ik google foreign keys zo wel ff :D
+                // bij getItem query in de callback krijg ik een response die ik heb uitgelezen in discord. Viel me al gelijk op hoe de db in elkaar zit. veel lossen tabels en herhaling, correct?
+                // niet egt herhaling. 1 table voor user, 1 table voor shop en wou nog table voor cooldowns etc maken
+                // maar pickaxe staat hardcoded in de user table? als
+                // yes eerst niet. Maar dit was een 'oplossing' voor ditzelfde probleem wat ik eerst had.
+                //eerst had een table inventory en daar gooide die gewoon items in gelinked aan de userID... Maar zodra de item er niet was crashde die en de bot ook...
+
+
+
+                // Ah klinkt als een simpele probleem om op te lossen. Ik leg snel uit hoe ik het zou doen zodat je er al over na kan denken. 
+                // Heel simpel. 
+
+                // ------------------------------------------- VANAF HIER LEZEN ------------------------------------------------------
+                // Elk item die je in je shop hebt is een definitie. dat kan eruit zien als volgt: 
+
+                // ItemDefinition: id: int (PK), name: string, description: string. <-- heel simpel houden, dit is enkel een definitie
+                // Je maakt inderdaad een losse table voor de items om herhaling te voorkomen. Dit heeft te maken met de tweede of derde normaalvorm. Google it.
+                // ItemStore: gaat een collectie bevatten van items -> id: int, itemId: ItemDefinition.id, quantity: int
+                // ^ dat betekend dat je een one to many relatie hebt tussen de definitie en de store. Hierin houd je enkel de quantity bij en hoeft je niet 2x te update wanneer je de naam wilt veranderen.
+                // Nu wil je de user niet aan de item def hangen, maar aan een store item.
+                // User -> id: int, name: string, iets: string <- geen idee wat je wilt opslaan. Hier kan je trouwens niet zomaar items aan hangen, daar heb je een tussen tabel voor nodig. 
+                // Je gaat een many to many maken, want meerdere users kunnen meerdere items bevatten, right?
+                // UserStore -> id: int, user.id, ItemStore.id <- hierin zeg je eigenlijk dat de hoeveelheid combinaties bepaalt wat de gebruiker heeft.$
+
+                // voorbeeld: 
+
+                // laat ik het anders doen
+                //yes
+                //lel
+                // moet ik dit voor elke item maken?
+                // moment leg ik zo uit
+
+                // De definities maak je zelf in de db, ooit en ik weet niet hoe je dat doet met gebruikers, ik neem aan dat je ze mapt vanuit discord.
+                // nu moet je ook ergens je inventory maken. Dus de globale. (itemStore)
+                // Als de gebruiker iets koopt haal, zoek je het item in de itemstore en bepaal je of je er 1 kan kopen of niet. 
+                // dan maak je een nieuwe record in userStore, daarin hoef je dan enkel de userid en itemstoreid aan mee te geven. 
+                // de rest moet auto generated zijn
+
+                // nu kun je ook op een event based iets werken, maar dat leg ik je liever persoonlijk uit, dat is veel werk om te typen
+                // Ja uiteindelijk wel en kan je makkelijker rapporten/overzichten maken
+                // Let op als je in-game currency wilt gebruiken om iets aan te schaffen, werk dat op een event based manier
+
+                // Net als bij banken bepaalt meerdere events hoeveel je op je rekening hebt. dus bijboekingen en afschrijvingen en dan het balans wat je nog hebt.
+                // We hebben het er nog wel een keer over, ik ben echt gaar xd
+                // ------------------------------------------- END ------------------------------------------------------
+
+
+
+
+
+            // sws emperial credits word ingame currency :D aight slaap lekker bro, thanks voor de hulp!!!
+            // anytime, ik help je ergens deze week ofzo met de db? geen idee hoe jij met je tijd zit
+            // heb niks geplanned op het weekend na. Me oma is jarig.
+            // ik moet even kijken hoe ik zit qua tijd, morgen heb ik geen tijd en ergens moet ik mijn afstudeervoorstel afmaken. Di en do les. Dus wss wo of vrijdag ergens
+            //vrij kan ik niet dus alleen woe. MAar als je je voorstel moet afmaken gaat dat voor :D
+            // zeker, maar ik kan ook ergens een uurtje pakken om bij jou langs te gaan
+            // Sounds good, moet je ff appie sturen ben wss sws thuis. Voor jou lekker uhm. Flexibel
+            // haha is cool, ik spreek je. Later!
+            //LAATS! thanks again
+            // Dus moet ook een stuk minder querien dan?
+            // ik ga dit zometeen 15x doorlezen :^)
+            // get getItem query is daar nog niet gedefineerd he 
+            // dus ik moet een losse tabel voor items maken?
+            //oh nvm :^) Aight. Uhmm
+            //is die niet goeie :(:(:(
+            // basic, maar kan beter als ik het zo mag geloven haha
+
+            //omdat shop en user verschillende tables zijn. Kek.
+            // Ik haalde het eigenlijk weer op om de quantity van de user op te halen en te updaten. Zo stat het in de table. Item = colom. quantity = entry
+            //oh wacht nee. Wat ik wil is dat als je de item koopt die uit de store gaat. En dan toegevoegd word in de user table. 
+            // Yes nou moet je hem aan de user geven. Waar het fout ging :^)
+            // Nu het kan? Maar hoe ga je de item in de MySQL updaten nu?
+            // de updateShopItemQ doet UPDATE shop SET quantity = ${quantity} WHERE item = '${item}', lijkt mij prima?
+            // zelf zou ik het niet zo doen, maar meer van substractQuantity methode
+            //Maar das voor de shop right? Hij moet naar de user tabel aka uhm
+            // huh? :p
+            //user[0].(itemnaam) moet geupdate worden voor de nieuwe item aan de user te geven.
+            // Dat staat niet in je code of wel?
+            // niet meer :^)
+            //kijk bij command test
+            // aah
+
+
+                    if (args[0] === 'buy') {
+          const query = args[1];
+
+          message.reply('this works');
+
+          // Kan hij const aan?
+          const foundItemIndex = resultShop.findIndex(r => r.item === query);
+          const foundItem = resultShop[foundItemIndex];
+
+          // Een early out zou beter zijn
+          if (foundItem == null) {
+            message.reply('Kan niet...');
+            return; // Nu gaat hij niet door
+          }
+
+          message.reply('this works, too');
+
+          // Remove it from the shop?
+          // WIl je dat hij alleen doorgaat als dit allemaal goed loopt?
+
+          // Kan je de store ook niet updaten btw? 
+          //Jawel dat ging prima. Hij haalde wel items weg
+          // maar kwam niks bij xD
+          if (foundItem.quantity >= 1) {
+            foundItem.quantity -= 1; // probeer expliciet te schrijven, zo zie je het in 1 oogopslag
+            Query.updateShopItemQ(foundItem.quantity, foundItem.item).then((response) => {
+              // wellicht een check op de response?
+              // Leg mij uit wat je precies wilt doen, ik snap de flow niet helemaal
+
+              // Item is nu geupdatet, althans de quantity als ik het mag geloven
+              // Betekent dat ik nu het item bij de gebruiker kan hangen?
+              // waarom haal je het item opnieuw op hieronder?
+              // wacht wacht wacht volgens mij snap ik hem
+              // de gebruiker kan ook het item al hebben?
+              // ik leer je ooit wel een goed db schema maken :0 
+
+              // even kijken
+
+
+
+
+              const getItem = `SELECT '${query}' FROM user WHERE id = ?`; // <-- lijkt overbodig?
+
+              var query = db.query(getItem, userID, (err, buyItem, field) => {
+                // don't do anything when we got an error, maybe notify the user
+                if (err) throw err;
+
+
+
+
+                message.reply(JSON.stringify({ err, buyItem, field }));
+                // je maakt het jezelf best lastig zo te zien. 
+
+                // hoe kom je aan die value?
+
+                Query.updateitem(userID, field, buyItem).then((response) => {
+
+                });
+
+                
+
+                const itemDefintions = [
+                  {
+                    id: 1,
+                    name: 'Pickaxe',
+                    description: `Pretty sharp isn't it?`
+                  }
+                ]
+
+                const itemStore = [
+                  {
+                    id: 1,
+                    itemDefintion: 1, // Kan je ook zien alsof dat object erin zit. { id: 1, name: 'Pickaxe', description: `Pretty sharp isn't it?` }
+                    quantity: 100,
+                  }
+                ]
+
+                const users = [
+                  {
+                    id: 1,
+                    name: 'Danny',
+                    description: 'is awesome',
+                  }
+                ]
+
+                const userStore = [ // betekent dat ik nu 2 pickaxes heb.
+                  {
+                    id: 1,
+                    userId: 1, // idem bovenstaande voorbeeld,
+                    itemStoreId: 1, // idem bovenstaande voorbeeld
+                    datePurchased: '2019-12-01T00:00:00'
+                  },
+                  {
+                    id: 2,
+                    userId: 1, // idem bovenstaande voorbeeld,
+                    itemStoreId: 1, // idem bovenstaande voorbeeld
+                    datePurchased: '2019-12-01T00:01:00'
+                  }
+                ]
+
+
+              });
+
+            });
+
+          }
+
+
+
+
+          // gek dat hij find niet aankan, maar filter wel trots :D Ziet er heel anders uit als mijn code
+          // Ik doe dit al wel langer he :p Ik schud dit zo uit mijn mouw
+
+          message.reply(foundItemIndex); // geeft hij ergens een error? nopee all is a ok :thinking: Ik dacht dat het nodig was :^) kan die dat niet aan? Hij doet het wel goed bij mijn await query functies
+          return;
+
+          // wat wil je hier bereiken? Als hij gekocht word. Moet die uit de shop. En moet er 1 bijkomen bij de user
+          // Je loopt hier de resultshop om te kijken of het item erin zit? yes ah ik ken wat tricks even uitproberen yes
+
+          for (var i = 0; i < resultShop.length; i++) {
+            message.reply('looping');
+
+            if (args[1] === resultShop[i].item) {
+              // if (resultShop[i].quantity === 1) {
+              //   Query.removeShopItem(args[1]);
+              // }
+
+              // if (resultShop[i].quantity >= 1); {
+              //   resultShop[i].quantity--;
+              //   Query.updateShopItemQ(resultShop[i].quantity, resultShop[i].item);
+              // }
+
+              const getItem = `SELECT '${args[1]}' FROM user WHERE id = ?`;
+
+              message.reply(getItem);
+
+              // Weet je zeker dat de bot ook al nieuwe js aan kan?
+              //Welke? () => {} deze 
+              //laatste node staat erop dus denk eht wel? 12.0 > ?
+
+
+              // var query = db.query(getItem, userID, (err, buyItem, field) => {
+              //   // Just in case
+              //   message.reply(JSON.stringify(err)); // kan je deze naar me toe sturen? Of kan je hem ergens runnen waar ik bij kan? Ik moet sws het commando iniaten in discord.
+              //   // krijg je de output in discord te zien? wow .. de error, wel als ik jou console.log aanpass naar message.reply()
+              //   // Zit je in een afgebakende discord channel? dan kan je me uitnodigen en loggen we het daar, yes ik invite je wel ff.
+              //   if (err) throw err;//oops je shit staat niet goed in de channel. Sec.
+
+              //   //Query.updateitem();
+              // });
+
+              // ^dit?
+            }
+          }
+        }
+      }
+
+      //Levling up check & Updating message experience.
+      if (expSocial > 5000 * (Math.pow(lvlSocial, 1.4))) {
+        expSocial = expSocial + XP.returnXP(10, 30);
+        lvlSocial++;
+        if (lvlSocial == 12) {
+          message.member.addRole(message.guild.roles.find(role => role.name === "Starter"));
+        }
+        message.reply('Congratulations you are now level ' + lvlSocial);
+        client.stats [userID] ={
+          rank: rank,
+          kills: kills,
+          lvlStrenght: lvlStrenght,
+          expStrenght: expStrenght,
+          lvlDefense: lvlDefense,
+          expDefense: expDefense,
+          lvlHealth: lvlHealth,
+          expHealth: expHealth,
+          lvlStealth: lvlStealth,
+          expStealth: expStealth,
+          lvlMaterial: lvlMaterial,
+          expMaterial: expMaterial,
+          lvlFinance: lvlFinance,
+          expFinance: expFinance,
+          lvlSocial: lvlSocial,
+          expSocial: expSocial,
+          lvlTravel: lvlTravel,
+          expTravel: expTravel,
+          lvlMath: lvlMath,
+          expMath: expMath,
+          lvlScience: lvlScience,
+          expScience: expScience,
+        }
+        client.inv [userID] ={
+          credits: uCred,
+          sigils: uSgl,
+          weapon: uWeapon,
+          tool: uTool
+        }
+      } else {
+        expSocial = expSocial + XP.returnXP(10, 30);
+        console.log(expSocial);
+        client.stats [userID] ={
+          rank: rank,
+          kills: kills,
+          lvlStrenght: lvlStrenght,
+          expStrenght: expStrenght,
+          lvlDefense: lvlDefense,
+          expDefense: expDefense,
+          lvlHealth: lvlHealth,
+          expHealth: expHealth,
+          lvlStealth: lvlStealth,
+          expStealth: expStealth,
+          lvlMaterial: lvlMaterial,
+          expMaterial: expMaterial,
+          lvlFinance: lvlFinance,
+          expFinance: expFinance,
+          lvlSocial: lvlSocial,
+          expSocial: expSocial,
+          lvlTravel: lvlTravel,
+          expTravel: expTravel,
+          lvlMath: lvlMath,
+          expMath: expMath,
+          lvlScience: lvlScience,
+          expScience: expScience,
+        }
+        client.inv [userID] ={
+          credits: uCred,
+          sigils: uSgl,
+          weapon: uWeapon,
+          tool: uTool
+        }
+      }
