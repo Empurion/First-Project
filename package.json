@@ -1,0 +1,19 @@
+{
+  "name": "Empernet",
+  "version": "1.0.0",
+  "description": "Empernet discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Empurion",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "discord.js-reaction-menu": "^1.0.1",
+    "express": "^4.17.1",
+    "ms": "^2.1.2",
+    "mysql": "^2.17.1"
+  }
+}
