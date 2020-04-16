@@ -140,10 +140,6 @@ TheRing = new Continent(
     voice = new Channel("Europe", "700128491647271003")
 )
 )
-filePath = './empernet/class/data/empernet.json'
-fs.writeFile(filePath, JSON.stringify(Empernet, null, 4), err=>{
-    if (err) throw err;
-  });
 }
 
 
