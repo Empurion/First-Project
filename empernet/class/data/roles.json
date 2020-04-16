@@ -1,0 +1,95 @@
+{
+
+    "rank": {
+        "name": "-=Rank=-",
+        "id": "650253428790132746"
+    },
+    "faction": {
+        "name": "-=Faction=-",
+        "id": "687137759726665739"
+    },
+    "location": {
+        "name": "-=Location=-",
+        "id": "687134789328961637"
+    },
+    "currently": {
+        "name": "-=Currently=-",
+        "id": "687140503271243780"
+    },
+
+    "travelling": {
+        "name": "travelling",
+        "id": "648828708278239261"
+    },
+
+    "working": {
+        "name": "working",
+        "id": "688814067527319661"
+    },
+    
+    "roaming": {
+        "name": "roaming",
+        "id": "700008662122627085"
+    },
+
+    "ring": {
+        "name": "The Ring",
+        "id": "687327097387352084"
+    },
+
+    "europe": {
+        "name": "Europe",
+        "id": "648708922361905152"
+    },
+
+    "asia": {
+        "name": "Asia",
+        "id": "648708946374426665"
+    },
+
+    "northAmerica": {
+        "name": "North America",
+        "id": "648708966121209860"
+
+    },
+
+    "southAmerica": {
+        "name": "South America",
+        "id": "648708990800363540"
+    },
+
+    "australia": {
+        "name": "Australia",
+        "id": "648709014385066000"
+    },
+
+    "africa": {
+        "name": "Africa",
+        "id": "648709056588152862"
+    },
+
+    "developer": {
+        "name": "Developer",
+        "id": "649705102629666827"
+    },
+
+    "upperManagement": {
+        "name": "Upper Management",
+        "id": "648830168999395328"
+    },
+
+    "lowerManagement": {
+        "name": "Lower Management",
+        "id": "650255493679546368"
+    },
+    
+    "player": {
+        "name": "Player",
+        "id": "650255378013224960"
+    },
+    "betaTester": {
+        "name": "Beta Tester",
+        "id": "649695304689647627"
+    }
+
+}

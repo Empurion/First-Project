@@ -1,0 +1,84 @@
+{
+    "id": "186783154671976449",
+    "total": 11,
+    "credits": 2000,
+    "sigils": 0,
+    "bankedCredits": 0,
+    "bankedSigils": 0,
+    "health": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "health"
+    },
+    "strength": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "strength"
+    },
+    "defense": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "defense"
+    },
+    "martialArts": {
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "martialArts"
+    },
+    "finance": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "finance"
+    },
+    "material": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "material"
+    },
+    "math": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "math"
+    },
+    "research": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "research"
+    },
+    "science": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "science"
+    },
+    "social": {
+        "exp": 90,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "social"
+    },
+    "stealth": {
+        "exp": 0,
+        "rank": "Beginner",
+        "requirment": 1000,
+        "muliplier": 1.5,
+        "name": "stealth"
+    }
+}

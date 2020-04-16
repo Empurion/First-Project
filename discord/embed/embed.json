@@ -1,0 +1,16 @@
+{
+    "country": {
+        "title": "Shop",
+        "author": {
+            "name": "Empernet"
+        },
+        "fields": [
+            {
+                "name": "eu",
+                "value": "**Blueprints**",
+                "inline": false
+            }
+        ],
+        "files": []
+    }
+}

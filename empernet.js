@@ -1,10 +1,22 @@
-const mysql = require('mysql');
-const query = require('./query.js');
-//database
+//PLUGINS
 
-//User Class
-class Empernet {
-  constructor(){
-  this.id = 470584611739795476;
-  }
-} module.exports = Empernet
+
+//DIRECTORIES
+
+
+//CLASSES
+
+
+//FILES
+const empernet = require('./empernet/empernet.js')
+const listener = require('./discord/listener.js');
+
+//TEMP VAR
+let Empernet = ""
+
+//intialises Empernet
+empernet.initializeEmpernet(Empernet)
+
+
+//runs the discord listener
+listener.run(Empernet);
