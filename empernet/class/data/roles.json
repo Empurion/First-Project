@@ -90,6 +90,10 @@
     "betaTester": {
         "name": "Beta Tester",
         "id": "649695304689647627"
+    },
+    "newcomer": {
+        "name": "Newcomer",
+        "id": "648996395360976907"
     }
 
 }

@@ -31,9 +31,9 @@ async function createUser(userID){
     VALUES ('${userID}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
     INSERT INTO user_status (user_id, company_id, currently, since)
-    VALUES ('${userID}', '0', '0', '0', '0');
+    VALUES ('${userID}', '0', '0', '0');
 
-    INSERT INTO user_inventory (user_id, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+    INSERT INTO user_inventory (user_id, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, slot13, slot14, slot15)
     VALUES ('${userID}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');`
     )
 }
@@ -76,6 +76,19 @@ async function getUser(userID, callback){
     SELECT * 
     FROM users, user_skills, user_status 
     WHERE users.id = ? AND users.id = user_skills.user_id AND users.id = user_status.user_id `, [userID], function(err, result) {
+        if (err) 
+            callback(err,null);
+        else
+            callback(null,result);
+    });
+}
+
+async function getUserStats(status, callback){
+
+    await db.query(`
+    SELECT user_id 
+    FROM user_status 
+    WHERE currently = ?`, [status], function(err, result) {
         if (err) 
             callback(err,null);
         else
@@ -135,4 +148,4 @@ async function getResource(resourceName, callback){
     });
 }
 
-module.exports = {createUser, getInventory, createBlueprint, createItem, createResource, getUser, getBlueprint, getResource, getItem}
+module.exports = {createUser, getInventory, createBlueprint, createItem, createResource, getUser, getUserStats, getBlueprint, getResource, getItem}

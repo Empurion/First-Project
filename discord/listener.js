@@ -11,6 +11,7 @@ const requireDir = require('require-dir');
 
 
 //FILES
+const db = require('../empernet/database/query.js')
 const empernet = require('../empernet/main.js')
 const discordHandler = require('./handler.js')
 const auth = require('./auth.json');
@@ -35,7 +36,7 @@ client.login(auth.token);
 client.on('guildMemberAdd', (guildMember) => {
   //dbQuery.newUser(guildMember.id);
   guildMember.addRole(roles.rank.id)
-  console.log(roles.rank.id)
+  guildMember.addRole(roles.newcomer.id)
   guildMember.addRole(roles.faction.id)
   guildMember.addRole(roles.location.id)
   guildMember.addRole(roles.currently.id)
@@ -53,7 +54,10 @@ client.on("message", (message) => {
 
   const userID = message.author.id;
   
-
+  if (message.member.roles.has(roles.newcomer.id)){
+    db.createUser(userID)
+    message.member.removeRole(roles.newcomer.id)
+  } else {
   
 
   
@@ -73,7 +77,9 @@ client.on("message", (message) => {
   else {
     discordHandler.message(empernet.initializeUser(userID),userID, users, message, client, Empernet);
   }
+  }
 });
+
 } 
 
 

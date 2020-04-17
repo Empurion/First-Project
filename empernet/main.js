@@ -26,6 +26,8 @@ const db = require('./database/query.js')
 const roles = require('./class/data/roles.json');
 
 
+
+
 //////////////////////////Initialize Empernet
 async function initializeEmpernet(){
 
@@ -137,16 +139,23 @@ TheRing = new Continent(
     bank = new Channel("bank", "648711020940099585"),
     auctionHouse = new Channel("action-house", "648710054304022528"),
     voice = new Channel("Europe", "700128491647271003")
+
 )
 )
+
+    //reward systems
+    setInterval(rewardGathering, 60000);
 }
 
 
 async function initializeUser(userID){
 
     await db.getInventory(userID, function(err, inventory){
+        console.log(inventory)
     db.getUser(userID, function(err, user){
+        console.log(user)
     currentUser = new User(userID, user, inventory)
+    console.log(currentUser)
     saveData("user", currentUser, userID)
     })
     })
@@ -154,6 +163,12 @@ async function initializeUser(userID){
 }
 
 
+async function rewardGathering(){
+    db.getUserStats("gathering", list)
+    console.log(list)
+
+
+}
 
 
 ///////////////////////////Travel Empernet
@@ -266,5 +281,5 @@ async function saveData(command, newData, userID){
 }
 
 
-module.exports = {initializeEmpernet, initializeUser, travel, saveData}
+module.exports = {rewardGathering, initializeEmpernet, initializeUser, travel, saveData}
 
