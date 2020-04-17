@@ -1,7 +1,7 @@
 const db = require('../../empernet/database/query.js')
 const fs = require('fs');
 
-async function command(args, userID, message, client, Empernet){
+async function command(args, userID, user, message, client, Empernet){
     const amount = require('../../empernet/class/data/amount.json')
 
             ////////////////////SECOND WORD

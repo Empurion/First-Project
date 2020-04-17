@@ -48,32 +48,42 @@ client.on("message", (message) => {
   if (message.author.bot) return; 
 
   //GET USERDATA
-  var user = require('../empernet/user.js');
   var users = requireDir('../empernet/users');
 
   
-
+  
+  //SET CONSTANT USERID VAR
   const userID = message.author.id;
-  let tUser = client.guilds.get('591738224561618969').members.get(userID) //addRole('193654001089118208'))
+
+  //GET USER FROM GUILD
+  let tUser = client.guilds.get('591738224561618969').members.get(userID)
 
 
+
+  //CREATE AND LOAD USER INTO CACHE
   if (tUser.roles.has(roles.newcomer.id)){
+    message.reply("Seems like you don't have any files yet, I'll quickly make some for you.")
     db.createUser(userID)
     tUser.removeRole(roles.newcomer.id)
+    empernet.initializeUser(userID)
+    setTimeout(() => {
+      message.reply("Files have been created, Goodluck!")
+  }, 3000)
   } else {
   
 
-  
-  //SET CONSTANT USERID VAR
-
-  console.log(message.content);
 
 
-  //CHECK IF USER IS CACHED
+
+
+  //CHECK IF USER IS CACHED, CACHE THEM IF THEY'RE NOT
   if(!users[userID]){
       message.reply("Please wait while i get your user files.")
-      message.reply(empernet.initializeUser(userID))
-      message.reply("Files loaded! Goodluck.")
+      empernet.initializeUser(userID)
+      setTimeout(() => {
+        message.reply("Files loaded, Goodluck!")
+    }, 3000)
+  
   } 
 
 
