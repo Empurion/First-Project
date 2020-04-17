@@ -151,11 +151,8 @@ TheRing = new Continent(
 async function initializeUser(userID){
 
     await db.getInventory(userID, function(err, inventory){
-        console.log(inventory)
     db.getUser(userID, function(err, user){
-        console.log(user)
     currentUser = new User(userID, user, inventory)
-    console.log(currentUser)
     saveData("user", currentUser, userID)
     })
     })
@@ -165,11 +162,11 @@ async function initializeUser(userID){
 
 async function rewardGathering(){
     db.getUserStatus("gathering",function(err, list){
-        i = 0
-  while (list[i].user_id > 0){
-    console.log(list[i].user_id)
-    i++
-  }
+    let i = 0;
+    while (list[i]){
+        console.log(list[i].user_id)
+        i++
+    }
 
 
 })
@@ -177,9 +174,20 @@ async function rewardGathering(){
 
 
 ///////////////////////////Travel Empernet
-async function travel(destination, source, userID, client){
-    client.guilds.get('591738224561618969').members.get(userID).addRole(roles[destination].id)
-    client.guilds.get('591738224561618969').members.get(userID).removeRole(roles[source].id)
+async function travel(destination, source, userID, client, message){
+    let user = client.guilds.get('591738224561618969').members.get(userID)
+        message.reply("leaving in 3 seconds.")
+    setTimeout(() => {
+        user.addRole("648828708278239261")
+        user.removeRole(roles[source].id)
+    }, 3000)
+    setTimeout(() => {
+        client.guilds.get("591738224561618969").channels.get("700006164498350093").send("<@" + userID + ">, arriving in 3 seconds");
+    }, 57000)
+    setTimeout(() => {
+        user.removeRole("648828708278239261")
+        user.addRole(roles[destination].id)
+    }, 60000)
 }
 
 

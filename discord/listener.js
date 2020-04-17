@@ -48,15 +48,18 @@ client.on("message", (message) => {
   if (message.author.bot) return; 
 
   //GET USERDATA
-  let user = require('../empernet/user.js');
-  let users = requireDir('../empernet/users');
+  var user = require('../empernet/user.js');
+  var users = requireDir('../empernet/users');
 
+  
 
   const userID = message.author.id;
-  
-  if (message.member.roles.has(roles.newcomer.id)){
+  let tUser = client.guilds.get('591738224561618969').members.get(userID) //addRole('193654001089118208'))
+
+
+  if (tUser.roles.has(roles.newcomer.id)){
     db.createUser(userID)
-    message.member.removeRole(roles.newcomer.id)
+    tUser.removeRole(roles.newcomer.id)
   } else {
   
 
@@ -70,6 +73,7 @@ client.on("message", (message) => {
   if(!users[userID]){
       message.reply("Please wait while i get your user files.")
       message.reply(empernet.initializeUser(userID))
+      message.reply("Files loaded! Goodluck.")
   } 
 
 

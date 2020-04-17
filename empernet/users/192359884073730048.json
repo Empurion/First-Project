@@ -2,10 +2,10 @@
     "userID": "192359884073730048",
     "rank": "Beginner",
     "total": 11,
-    "credits": 0,
+    "credits": 2000,
     "sigils": 0,
-    "bankedCredits": 14627,
-    "bankedSigils": 24,
+    "bankedCredits": 0,
+    "bankedSigils": 0,
     "Health": {
         "exp": 0,
         "name": "Health",
@@ -27,7 +27,7 @@
         "rank": "Beginner"
     },
     "Finance": {
-        "exp": 255,
+        "exp": 0,
         "name": "Finance",
         "rank": "Beginner"
     },
@@ -52,7 +52,7 @@
         "rank": "Beginner"
     },
     "Social": {
-        "exp": 7025,
+        "exp": 0,
         "name": "Social",
         "rank": "Beginner"
     },
@@ -63,22 +63,22 @@
     },
     "Inventory": [
         {
-            "1": 0,
-            "2": 0,
-            "3": 0,
-            "4": 0,
-            "5": 0,
-            "6": 0,
-            "7": 0,
-            "8": 0,
-            "9": 0,
-            "10": 0,
-            "11": 0,
-            "12": 0,
-            "13": 0,
-            "14": 0,
-            "15": 0,
-            "user_id": 192359884073730050
+            "user_id": 192359884073730050,
+            "slot1": 0,
+            "slot2": 0,
+            "slot3": 0,
+            "slot4": 0,
+            "slot5": 0,
+            "slot6": 0,
+            "slot7": 0,
+            "slot8": 0,
+            "slot9": 0,
+            "slot10": 0,
+            "slot11": 0,
+            "slot12": 0,
+            "slot13": 0,
+            "slot14": 0,
+            "slot15": 0
         }
     ]
 }

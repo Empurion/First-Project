@@ -1,84 +1,84 @@
 {
-    "id": "186783154671976449",
+    "userID": "186783154671976449",
+    "rank": "Beginner",
     "total": 11,
     "credits": 2000,
     "sigils": 0,
     "bankedCredits": 0,
     "bankedSigils": 0,
-    "health": {
+    "Health": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "health"
+        "name": "Health",
+        "rank": "Beginner"
     },
-    "strength": {
+    "Strength": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "strength"
+        "name": "Strength",
+        "rank": "Beginner"
     },
-    "defense": {
+    "Defense": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "defense"
+        "name": "Defense",
+        "rank": "Beginner"
     },
-    "martialArts": {
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "martialArts"
-    },
-    "finance": {
+    "MartialArts": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "finance"
+        "name": "Martial Arts",
+        "rank": "Beginner"
     },
-    "material": {
+    "Finance": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "material"
+        "name": "Finance",
+        "rank": "Beginner"
     },
-    "math": {
+    "Material": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "math"
+        "name": "Material",
+        "rank": "Beginner"
     },
-    "research": {
+    "Math": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "research"
+        "name": "Math",
+        "rank": "Beginner"
     },
-    "science": {
+    "Research": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "science"
+        "name": "Research",
+        "rank": "Beginner"
     },
-    "social": {
-        "exp": 90,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "social"
-    },
-    "stealth": {
+    "Science": {
         "exp": 0,
-        "rank": "Beginner",
-        "requirment": 1000,
-        "muliplier": 1.5,
-        "name": "stealth"
-    }
+        "name": "Science",
+        "rank": "Beginner"
+    },
+    "Social": {
+        "exp": 0,
+        "name": "Social",
+        "rank": "Beginner"
+    },
+    "Stealth": {
+        "exp": 0,
+        "name": "Stealth",
+        "rank": "Beginner"
+    },
+    "Inventory": [
+        {
+            "user_id": 186783154671976450,
+            "slot1": 0,
+            "slot2": 0,
+            "slot3": 0,
+            "slot4": 0,
+            "slot5": 0,
+            "slot6": 0,
+            "slot7": 0,
+            "slot8": 0,
+            "slot9": 0,
+            "slot10": 0,
+            "slot11": 0,
+            "slot12": 0,
+            "slot13": 0,
+            "slot14": 0,
+            "slot15": 0
+        }
+    ]
 }
