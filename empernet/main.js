@@ -164,10 +164,12 @@ async function initializeUser(userID){
 
 
 async function rewardGathering(){
-    db.getUserStats("gathering", list)
-    console.log(list)
+    db.getUserStats("gathering",function(err, list){
 
+  
+    console.log(list.user_id)
 
+})
 }
 
 
