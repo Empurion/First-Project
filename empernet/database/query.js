@@ -34,31 +34,31 @@ async function createUser(userID){
     VALUES ('${userID}', '0', '0', '0', '0');
 
     INSERT INTO user_inventory (user_id, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-    VALUES ('${userID}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0')`
+    VALUES ('${userID}', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');`
     )
 }
 
-async function createBlueprint(id, name, type, item1, item2){
+async function createBlueprint(name, type, item1, item2){
 
     await db.query(`
-    INSERT INTO blueprints (id, name, type, item1, item2)
-    VALUES (${id}, ${name}, ${type}, ${item1}, ${item2})`
+    INSERT INTO blueprints (name, type, item1, item2)
+    VALUES ("${name}", "${type}", "${item1}", "${item2}")`
     )
 }
 
-async function createItem(id, name, blueprint, type, bonus){
+async function createItem(name, blueprint, type, bonus){
 
     await db.query(`
-    INSERT INTO items (id, name, blueprint, type, bonus)
-    VALUES (${id}, ${name}, ${blueprint}, ${type}, ${bonus})`
+    INSERT INTO items (name, blueprint, type, bonus)
+    VALUES ("${name}", "${blueprint}", "${type}", "${bonus}")`
     )
 }
 
-async function createResource( id, name, skill1, skill2, skill3){
+async function createResource(name, skill1, skill2, skill3){
 
     await db.query(`
-    INSERT INTO resources (id, name, skill1, skill2, skill3)
-    VALUES (${id}, ${name}, ${skill1}, ${skill2}, ${skill3})`
+    INSERT INTO resources (name, skill1, skill2, skill3)
+    VALUES ("${name}", "${skill1}", "${skill2}", "${skill3}");`
     )
 
 

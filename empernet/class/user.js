@@ -7,7 +7,7 @@
 //CLASSES
 const Skill = require("./skill.js")
 const Inventory = require("./inventory.js")
-const empernet = require("../empernet.js")
+const empernet = require("../main.js")
 
 //FILES
 

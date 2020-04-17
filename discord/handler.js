@@ -11,28 +11,27 @@ const randomItem = require('random-item');
 
 //CLASSES
 const User = require('../empernet/class/user.js').default
+const Inventory = require('../empernet/class/inventory.js')
 
 //FILES
-const empernet = require('../empernet/empernet.js')
+const empernet = require('../empernet/main.js')
 const embeds = require('../discord/embed/embed.json')
 const embed = require('../discord/embed/embed.js')
 const roam = require("./commands/roam.js")
 const resources = require("../empernet/class/data/resources.json")
 var blueprints = require("../empernet/class/data/blueprints.json")
 
-var blueprintCount = 0;
-
 
 
 //MESSAGE COMES IN
-async function message(user, userID, message, client, Empernet){
+async function message(dummy, userID, user, message, client, Empernet){
 if (userID === "192359884073730048"){userID.trusted = "true"}
-var user = requireDir('../empernet/users');
 
 
 var guild = client.guilds.get("591738224561618969")
 
-console.log(user)
+
+
 //console.log(randomItem(user[userID]))
 
 

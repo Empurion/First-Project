@@ -1,7 +1,7 @@
 var embed = require('./embed.json')
 const Discord = require('discord.js');
 const fs = require('fs')
-const empernet = require('../../empernet/empernet.js')
+const empernet = require('../../empernet/main.js')
 
 
 async function updateShop(command, client, country, itemId){

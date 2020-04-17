@@ -1,3 +1,6 @@
+const amount = require('../../empernet/class/data/amount.json')
+const db = require('../../empernet/database/query.js')
+
 async function command(args, userID, message, client, Empernet){
 
 
@@ -21,34 +24,45 @@ async function command(args, userID, message, client, Empernet){
     
                         //THIRD WORD IS RESOURCE
                         case "resource":
-                            if(args[7] === "&"){
-                                // 3 = ID, 4 = NAME, 5 = 1ST_REQUIRED_SKILL, 6 = 1ST_REQUIRED_SKILL RANK, 8 = 2ND_REQUIRED_SKILL, 9 = 2ND_REQUIRED_RANK
-                                await Resource.create(args[3], args[4], args[5], args[6], args[8], args[9])
-                                message.reply("Created resource:\nID : " + args[3] + "\nNamed : " + args[4] + " \nRequirments: " + args[5] + args[6] + args[7] + args[8])
+
+                            if(!args[5]){
+                                // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
+                                db.createResource( args[3], args[4], "0", "0")
+                                message.reply("Created resource:\nid : " + amount.resources + "\nNamed : " + args[3] + " \nRequirments : " + args[4])
+                                amount.resources++
+
                             }
-                            else{
-                                await Resource.create(args[3], args[4], args[5], args[6], "none")
-                                message.reply("Created resource:\nID : " + args[3] + "\nNamed : " + args[4] + " \nRequirments: " + args[5] + args[6])
+                            if(args[4] === "2"){
+                                // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
+                                db.createResource( args[3], args[4], args[5], "0")
+                                message.reply("Created resource:\nid : " + amount.resources + "\nNamed : " + args[3] + " \nRequirments : " + args[5] + " and " + args[6])
+                                amount.resources++
+
+                            }
+                            if(args[4] === "3"){
+                                // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
+                                db.createResource( args[3], args[4], args[5], args[6])
+                                message.reply("Created resource:\nid : " + amount.resources + "\nNamed : " + args[3] + " \nRequirments : " + args[4] + " and " + args[5] + " and " +args[6])
+                                amount.resources++
                             }
                             break;
     
                         //THIRD WORD IS COMPANY
                         case "company":
-    
+
+                            db.createItem(args[3], args[4], args[5], args[6])
+                            message.reply("Created item:\nid : " + amount.items + "\nNamed : " + args[3] + "\nBlueprint : " + args[4] + " \nType : " + args[5] + "\nBonus : " + args[6])
+                            amount.items++
                             break;
     
     
                         //THIRD WORD IS BLUEPRINT
                         case "blueprint":
-                            // 3 = NAME, 4 = 1ST_RESOURCE 5 = 2ND_RESOURCE
-                            blueprints[blueprintCount] = await new Blueprint.Blueprint(args[4], args[5], args[6], args[7], args[8])
-                            empernet.saveData("blueprint", blueprints)
-                            message.reply("Created blueprint:\nID : " + args[3] + '\nNamed : ' + args[4] + "\nRequirments: " + args[5] + args[6] + args[7] + args[8])
-                            break;
-    
-                            
-    
-                    } 
+                            // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
+                            db.createBlueprint( args[3], args[4], args[5], args[6])
+                            message.reply("Created resource:\nid : " + amount.blueprints + "\nNamed : " + args[3] + "\nType : " + args[4] + " \nRequirments : " + args[5] + " and " + args[6])
+                            amount.blueprints++
+                    }
     
                 case "set":
                     if(args[2] === "shop"){

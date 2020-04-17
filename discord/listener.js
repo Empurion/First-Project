@@ -11,7 +11,7 @@ const requireDir = require('require-dir');
 
 
 //FILES
-const empernet = require('../empernet/empernet.js')
+const empernet = require('../empernet/main.js')
 const discordHandler = require('./handler.js')
 const auth = require('./auth.json');
 const roles = require('../empernet/class/data/roles.json');
@@ -71,7 +71,7 @@ client.on("message", (message) => {
 
   //RUN IF USER IS CACHED
   else {
-    discordHandler.message(empernet.initializeUser(userID), users, message, client, Empernet);
+    discordHandler.message(empernet.initializeUser(userID),userID, users, message, client, Empernet);
   }
 });
 } 
@@ -79,4 +79,4 @@ client.on("message", (message) => {
 
 
 
-module.exports = {run, }
+module.exports = {run}
