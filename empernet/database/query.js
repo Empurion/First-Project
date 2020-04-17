@@ -83,7 +83,7 @@ async function getUser(userID, callback){
     });
 }
 
-async function getUserStats(status, callback){
+async function getUserStatus(status, callback){
 
     await db.query(`
     SELECT user_id 
@@ -149,4 +149,4 @@ async function getResource(resourceName, callback){
     });
 }
 
-module.exports = {createUser, getInventory, createBlueprint, createItem, createResource, getUser, getUserStats, getBlueprint, getResource, getItem}
+module.exports = {createUser, getInventory, createBlueprint, createItem, createResource, getUser, getUserStatus, getBlueprint, getResource, getItem}

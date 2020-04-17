@@ -164,10 +164,13 @@ async function initializeUser(userID){
 
 
 async function rewardGathering(){
-    db.getUserStats("gathering",function(err, list){
+    db.getUserStatus("gathering",function(err, list){
+        i = 0
+  while (list[i].user_id > 0){
+    console.log(list[i].user_id)
+    i++
+  }
 
-  
-    console.log(list.user_id)
 
 })
 }
