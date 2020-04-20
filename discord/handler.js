@@ -13,6 +13,7 @@ const randomItem = require('random-item');
 //CLASSES
 
 //FILES
+const embed = require('./embed/embed.js')
 const main = require('../empernet/main.js')
 
 
@@ -33,7 +34,7 @@ const args = message.content.trim().split(/ +/g);
 console.log(message.content)
 main.addInventory(user[userID])
 
-console.log(Empernet)
+
 
 /////////////////////FIRST WORD
 

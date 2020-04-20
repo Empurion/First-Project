@@ -176,27 +176,17 @@ async function initializeUser(userID){
 }
 
 
-async function addInventory(user, item){
+async function addInventory(user, item, quantity){
 
     i = 0
-
     Inventory = user.Inventory
-    console.log(Inventory)
     for (property in Inventory) {
         if (Inventory[property] === "empty"){
-            Inventory[property] = item
+            Inventory[property] = item + "," + quantity
             return
         }
      }
 
-    //console.log(user.Inventory)
-    //for (Inventory in user){
-    //    if (Inventory.hasOwnProperty("0")){
-    //        i++
-    //        console.log(user.Inventory)
-    //    }
-    //}
-    console.log(i)
 }
 
 async function rewardGathering(){

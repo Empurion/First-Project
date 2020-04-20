@@ -1,0 +1,81 @@
+{
+    "userID": "109762470918291456",
+    "rank": "Beginner",
+    "total": 11,
+    "credits": 2000,
+    "sigils": 0,
+    "bankedCredits": 0,
+    "bankedSigils": 0,
+    "Health": {
+        "exp": 0,
+        "name": "Health",
+        "rank": "Beginner"
+    },
+    "Strength": {
+        "exp": 0,
+        "name": "Strength",
+        "rank": "Beginner"
+    },
+    "Defense": {
+        "exp": 0,
+        "name": "Defense",
+        "rank": "Beginner"
+    },
+    "MartialArts": {
+        "exp": 0,
+        "name": "Martial Arts",
+        "rank": "Beginner"
+    },
+    "Finance": {
+        "exp": 0,
+        "name": "Finance",
+        "rank": "Beginner"
+    },
+    "Material": {
+        "exp": 0,
+        "name": "Material",
+        "rank": "Beginner"
+    },
+    "Math": {
+        "exp": 0,
+        "name": "Math",
+        "rank": "Beginner"
+    },
+    "Research": {
+        "exp": 0,
+        "name": "Research",
+        "rank": "Beginner"
+    },
+    "Science": {
+        "exp": 0,
+        "name": "Science",
+        "rank": "Beginner"
+    },
+    "Social": {
+        "exp": 0,
+        "name": "Social",
+        "rank": "Beginner"
+    },
+    "Stealth": {
+        "exp": 0,
+        "name": "Stealth",
+        "rank": "Beginner"
+    },
+    "Inventory": {
+        "slot1": "0",
+        "slot2": "0",
+        "slot3": "0",
+        "slot4": "0",
+        "slot5": "0",
+        "slot6": "0",
+        "slot7": "0",
+        "slot8": "0",
+        "slot9": "0",
+        "slot10": "0",
+        "slot11": "0",
+        "slot12": "0",
+        "slot13": "0",
+        "slot14": "0",
+        "slot15": "0"
+    }
+}

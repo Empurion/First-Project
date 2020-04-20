@@ -5,7 +5,7 @@ const roles = require('../../empernet/class/data/roles.json')
 
 ///////////////////////////Travel Empernet
 async function travel(destination, discordUser, user, discordServer, message, Empernet){
-        message.reply("leaving in 3 seconds.")
+        message.reply("leaving in 5 seconds.")
     setTimeout(() => {
         discordUser.addRole("648828708278239261")
         discordUser.removeRole(Empernet.TheRing.id)
@@ -15,10 +15,10 @@ async function travel(destination, discordUser, user, discordServer, message, Em
         discordUser.removeRole(Empernet.SouthAmerica.id)
         discordUser.removeRole(Empernet.Africa.id)
         discordUser.removeRole(Empernet.Australia.id)
-    }, 3000)
+    }, 5000)
     setTimeout(() => {
-        discordServer.channels.get("700006164498350093").send("<@" + user.id + ">, arriving in 3 seconds");
-    }, 57000)
+        discordServer.channels.get("700006164498350093").send("<@" + user.id + ">, arriving in 5 seconds");
+    }, 55000)
     setTimeout(() => {
         discordUser.removeRole("648828708278239261")
         discordUser.addRole(roles[destination].id)
@@ -68,7 +68,8 @@ switch(args[1].toLowerCase() + " " + args[2].toLowerCase()){
         else {travel("australia", discordUser, user, discordServer, message, Empernet)}
     break;
 
-
+    default: 
+    message.reply(`That's not a valid location! \nCurrent locations are: Europe, North America, South America, Asia, Africa and Australia`)
 }
 }
 module.exports = {command}
