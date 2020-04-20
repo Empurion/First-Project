@@ -14,7 +14,6 @@ const Contract = require("./class/contract.js")
 const Cooldown = require("./class/cooldown.js")
 const empernet = require('./class/empernet.js')
 const House = require("./class/house.js")
-const Inventory = require("./class/inventory.js") 
 const Role = require("./class/roles.js")
 const Shop = require("./class/shop.js")
 const Skill = require("./class/skill.js")
@@ -32,7 +31,7 @@ const roles = require('./class/data/roles.json');
 async function initializeEmpernet(){
 
 
-Empernet = new empernet(
+exports.module = Empernet = new empernet(
 
 
 ///GLOBAL
@@ -89,7 +88,7 @@ SouthAmerica = new Continent(
 ///AFRICA
 Africa = new Continent(
     //NAME - ROLE ID - CATEGORY ID
-    "Afica", "648709056588152862", "648707886935179285",
+    "Africa", "648709056588152862", "648707886935179285",
     //NAME - CHANNEL ID
     localChat = new Channel("local-chat", "648717586090950657"),
     roaming = new Channel("roaming", "648709936989208596"),
@@ -151,14 +150,54 @@ TheRing = new Continent(
 async function initializeUser(userID){
 
     await db.getInventory(userID, function(err, inventory){
+        Inventory = {
+            slot1 : inventory[0].slot1,
+            slot2 : inventory[0].slot2,
+            slot3 : inventory[0].slot3,
+            slot4 : inventory[0].slot4,
+            slot5 : inventory[0].slot5,
+            slot6 : inventory[0].slot6,
+            slot7 : inventory[0].slot7,
+            slot8 : inventory[0].slot8,
+            slot9 : inventory[0].slot9,
+            slot10 : inventory[0].slot10,
+            slot11 : inventory[0].slot11,
+            slot12 : inventory[0].slot12,
+            slot13 : inventory[0].slot13,
+            slot14 : inventory[0].slot14,
+            slot15 : inventory[0].slot15,
+        }
     db.getUser(userID, function(err, user){
-    currentUser = new User(userID, user, inventory)
+    currentUser = new User(userID, user, Inventory)
     saveData("user", currentUser, userID)
     })
     })
 
 }
 
+
+async function addInventory(user, item){
+
+    i = 0
+
+    Inventory = user.Inventory
+    console.log(Inventory)
+    for (property in Inventory) {
+        if (Inventory[property] === "empty"){
+            Inventory[property] = item
+            return
+        }
+     }
+
+    //console.log(user.Inventory)
+    //for (Inventory in user){
+    //    if (Inventory.hasOwnProperty("0")){
+    //        i++
+    //        console.log(user.Inventory)
+    //    }
+    //}
+    console.log(i)
+}
 
 async function rewardGathering(){
     db.getUserStatus("gathering",function(err, list){
@@ -174,12 +213,18 @@ async function rewardGathering(){
 
 
 ///////////////////////////Travel Empernet
-async function travel(destination, source, userID, client, message){
+async function travel(destination, userID, client, message){
     let user = client.guilds.get('591738224561618969').members.get(userID)
         message.reply("leaving in 3 seconds.")
     setTimeout(() => {
         user.addRole("648828708278239261")
-        user.removeRole(roles[source].id)
+        user.removeRole(TheRing.id)
+        user.removeRole(Europe.id)
+        user.removeRole(Asia.id)
+        user.removeRole(NorthAmerica.id)
+        user.removeRole(SouthAmerica.id)
+        user.removeRole(Africa.id)
+        user.removeRole(Australia.id)
     }, 3000)
     setTimeout(() => {
         client.guilds.get("591738224561618969").channels.get("700006164498350093").send("<@" + userID + ">, arriving in 3 seconds");
@@ -294,5 +339,5 @@ async function saveData(command, newData, userID){
 }
 
 
-module.exports = {rewardGathering, initializeEmpernet, initializeUser, travel, saveData}
+module.exports = {initializeEmpernet, initializeUser, addInventory, rewardGathering, travel, saveData}
 

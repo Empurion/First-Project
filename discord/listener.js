@@ -7,7 +7,8 @@ const requireDir = require('require-dir');
 //DIRECTORIES
 
 
-//CLASSES
+//COMMANDS
+
 
 
 //FILES
@@ -31,10 +32,8 @@ client.on('ready', () => {
 //LOGIN FOR DISCORD
 client.login(auth.token);
 
-
 //GIVE START ROLES
 client.on('guildMemberAdd', (guildMember) => {
-  //dbQuery.newUser(guildMember.id);
   guildMember.addRole(roles.rank.id)
   guildMember.addRole(roles.newcomer.id)
   guildMember.addRole(roles.faction.id)
@@ -46,7 +45,6 @@ client.on('guildMemberAdd', (guildMember) => {
 //START OF MASSAGE HANDLER
 client.on("message", (message) => {
   if (message.author.bot) return; 
-
   //GET USERDATA
   var users = requireDir('../empernet/users');
 

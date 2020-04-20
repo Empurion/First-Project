@@ -1,99 +1,249 @@
 {
 
+
+    "Empernet":{
+
+        "name": "Empernet",
+        "id": "648545696659669030"
+
+    },
+
+
+    "developer": {
+
+        "name": "Developer",
+        "id": "649705102629666827"
+
+    },
+
+
+    "upperManagement": {
+
+        "name": "Upper Management",
+        "id": "648830168999395328"
+
+    },
+
+
+
+    "lowerManagement": {
+
+        "name": "Lower Management",
+        "id": "650255493679546368"
+
+    },
+
+
+    "player": {
+
+        "name": "Player",
+        "id": "650255378013224960"
+
+    },
+
+
+    "betaTester": {
+
+        "name": "Beta Tester",
+        "id": "649695304689647627"
+
+    },
+
+
+    "newcomer": {
+
+        "name": "Newcomer",
+        "id": "648996395360976907"
+
+    },
+
+
     "rank": {
+
         "name": "-=Rank=-",
         "id": "650253428790132746"
+
     },
+
+    "master": {
+
+        "name": "Master",
+        "id": "687196322839003152"
+
+    },
+
+
+    "expert": {
+
+        "name": "Expert",
+        "id": "687196290244673538"
+
+    },
+
+
+    "advanced": {
+
+        "name": "Advanced",
+        "id": "687196266228351019"
+
+    },
+
+
+    "intermediate": {
+
+        "name": "intermediate",
+        "id": "687196191347572757"
+
+    },
+
+
+    "adept": {
+
+        "name": "Adept",
+        "id": "687196166386876418"
+
+    },
+
+
+    "experienced": {
+
+        "name": "Experienced",
+        "id": "649447677419061248"
+
+    },
+
+
+    "beginner": {
+
+        "name": "Beginner",
+        "id": "649015430207373313"
+
+    },
+
+
     "faction": {
+
         "name": "-=Faction=-",
         "id": "687137759726665739"
+
     },
+
+
+    "emperial": {
+
+        "name": "Emperial",
+        "id": "648712059202175007"
+
+    },
+
+
+    "ADOGE": {
+
+        "name": "ADOGE",
+        "id": "687331959202250905"
+    },
+
+
     "location": {
+
         "name": "-=Location=-",
         "id": "687134789328961637"
-    },
-    "currently": {
-        "name": "-=Currently=-",
-        "id": "687140503271243780"
+
     },
 
-    "travelling": {
-        "name": "travelling",
-        "id": "648828708278239261"
-    },
 
-    "working": {
-        "name": "working",
-        "id": "688814067527319661"
-    },
-    
-    "roaming": {
-        "name": "roaming",
-        "id": "700008662122627085"
-    },
+    "theRing": {
 
-    "ring": {
         "name": "The Ring",
         "id": "687327097387352084"
+
     },
+
 
     "europe": {
+
         "name": "Europe",
         "id": "648708922361905152"
+
     },
+
 
     "asia": {
+
         "name": "Asia",
         "id": "648708946374426665"
+
     },
 
+
     "northAmerica": {
+
         "name": "North America",
         "id": "648708966121209860"
 
+
     },
+
 
     "southAmerica": {
+
         "name": "South America",
         "id": "648708990800363540"
+
     },
+
 
     "australia": {
+
         "name": "Australia",
         "id": "648709014385066000"
+
     },
+
 
     "africa": {
+
         "name": "Africa",
         "id": "648709056588152862"
+
     },
 
-    "developer": {
-        "name": "Developer",
-        "id": "649705102629666827"
+
+    "currently": {
+
+        "name": "-=Currently=-",
+        "id": "687140503271243780"
+
     },
 
-    "upperManagement": {
-        "name": "Upper Management",
-        "id": "648830168999395328"
+
+    "travelling": {
+
+        "name": "Travelling",
+        "id": "648828708278239261"
+
     },
 
-    "lowerManagement": {
-        "name": "Lower Management",
-        "id": "650255493679546368"
+
+    "working": {
+
+        "name": "Working",
+        "id": "688814067527319661"
+
     },
     
-    "player": {
-        "name": "Player",
-        "id": "650255378013224960"
-    },
-    "betaTester": {
-        "name": "Beta Tester",
-        "id": "649695304689647627"
-    },
-    "newcomer": {
-        "name": "Newcomer",
-        "id": "648996395360976907"
-    }
 
+    "roaming": {
+
+        "name": "Roaming",
+        "id": "700008662122627085"
+
+    },
+
+
+    "researching": {
+        "name": "Researching",
+        "id": ""
+
+    }
 }
