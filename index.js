@@ -1,23 +1,15 @@
 //PLUGINS
-
+//start server ( sudo nodemon index.js --ignore 'empernet/users/*.json' --ignore 'empernet/class/data/amount.json')
 
 //DIRECTORIES
 
 
 //CLASSES
-
+const empernet = require('./empernet/class/empernet.js')
 
 //FILES
-const main = require('./empernet/main.js')
-const listener = require('./discord/listener.js');
 
-//TEMP VAR
-let Empernet = ""
+Empernet = new empernet()
 
-//intialises Empernet
-main.initializeEmpernet(Empernet)
 
-console.log(Empernet)
-
-//runs the discord listener
-listener.run(Empernet);
+Empernet.run();

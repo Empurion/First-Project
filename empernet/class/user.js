@@ -1,47 +1,81 @@
 //PLUGINS
+const fs = require('fs');
+const requireDir = require('require-dir');
 
 
 //DIRECTORIES
 
 
 //CLASSES
-const Skill = require("./skill.js")
+const skill = require("../functions/skill.js")
 const Inventory = require("./inventory.js")
-const empernet = require("../main.js")
 
-//FILES
+//Functions
+const db = require('../functions/database.js')
+const empernet = require('../main.js')
+
 
 
 //User class
 class User {
-    constructor(userID, user, inventory) {
+    constructor(userID, cachedUsers) {
+    //this.id = userID;
+//
+    //    //Sets user Information
+    //    this.rank = cachedUsers[this.id].rank
+    //    this.credits = cachedUsers[this.id].credits
+    //    this.sigils = cachedUsers[this.id].sigils
+    //    this.bankedCredits = cachedUsers[this.id].bankedCredits
+    //    this.bankedSigils = cachedUsers[this.id].bankedSigils
+    //
+    //    //Sets user skills
+    //    this.Health = new Skill(cachedUsers[this.id].Health, Empernet)
+    //    this.Strength = new Skill(cachedUsers[this.id].Strength, Empernet)
+    //    this.MartialArts = new Skill(cachedUsers[this.id].MartialArts, Empernet)
+    //    this.Finance = new Skill(cachedUsers[this.id].Finance, Empernet)
+    //    this.Material = new Skill(cachedUsers[this.id].Material, Empernet)
+    //    this.Math = new Skill(cachedUsers[this.id].Math, Empernet)
+    //    this.Research = new Skill(cachedUsers[this.id].Research, Empernet)
+    //    this.Science = new Skill(cachedUsers[this.id].Science, Empernet)
+    //    this.Social = new Skill(cachedUsers[this.id].Social, Empernet)
+    //    
+    //    //Sets user inventory
+    //    this.Inventory = new Inventory.Inventory(cachedUsers[this.id].Inventory)
+    
+    }
+    create(){
+      db.createUser(this.id)
+    }   
+    get(){
+      db.getUser(this.id, userData)
+      this.credits = userData[0].credits
+    }
+    loadCache(cachedUsers){
+
+    
+    //Sets user Information
+    this.rank = cachedUsers[this.id].rank
+    this.credits = cachedUsers[this.id].credits
+    this.sigils = cachedUsers[this.id].sigils
+    this.bankedCredits = cachedUsers[this.id].bankedCredits
+    this.bankedSigils = cachedUsers[this.id].bankedSigils
+
+    //Sets user skills
+    this.Health = new Skill(cachedUsers[this.id].Health, Empernet)
+    this.Strength = new Skill(cachedUsers[this.id].Strength, Empernet)
+    this.MartialArts = new Skill(cachedUsers[this.id].MartialArts, Empernet)
+    this.Finance = new Skill(cachedUsers[this.id].Finance, Empernet)
+    this.Material = new Skill(cachedUsers[this.id].Material, Empernet)
+    this.Math = new Skill(cachedUsers[this.id].Math, Empernet)
+    this.Research = new Skill(cachedUsers[this.id].Research, Empernet)
+    this.Science = new Skill(cachedUsers[this.id].Science, Empernet)
+    this.Social = new Skill(cachedUsers[this.id].Social, Empernet)
+    
+    //Sets user inventory
+    this.Inventory = new Inventory.Inventory(cachedUsers[this.id].Inventory)
 
 
-    //USER
-    this.userID = userID;
-    this.rank = user[0].rank;
-    this.total = user[0].total;
-
-    //CURRENCY
-    this.credits = user[0].credits;
-    this.sigils = user[0].sigils;
-    this.bankedCredits = user[0].bank_credits;
-    this.bankedSigils = user[0].bank_sigils;
-
-    //SKILLS
-    this.Health = new Skill(user[0].health_exp, "Health")
-    this.Strength = new Skill(user[0].strength_exp, "Strength")
-    this.Defense = new Skill(user[0].defense_exp, "Defense")
-    this.MartialArts= new Skill(user[0].martial_arts_exp, "Martial Arts")
-    this.Finance = new Skill(user[0].finance_exp, "Finance")
-    this.Material = new Skill(user[0].material_exp, "Material")
-    this.Math = new Skill(user[0].math_exp, "Math")
-    this.Research = new Skill(user[0].research_exp, "Research")
-    this.Science = new Skill(user[0].science_exp, "Science")
-    this.Social = new Skill(user[0].social_exp, "Social")
-    this.Stealth = new Skill(user[0].stealth_exp, "Stealth")
-
-    this.Inventory = inventory
+    console.log("cache load succesful")
     }
     buy(itemID){
       let i = 0; 
@@ -52,8 +86,16 @@ class User {
       
       }
     }
-    save(){
-      empernet.saveData("user", this, this.id)
+    cache(){
+      console.log("caching " + this.id)
+      console.log(this.Social)
+      //USER OBJECT LOCATION
+      var filePath = './empernet/users/' + this.id + ".json"
+      //WRITE USER FILE SAVE
+      fs.writeFileSync(filePath, JSON.stringify(this, null, 4), err=>{
+        if (err) throw err;
+      });
+      console.log("succesfully cached")
     }
     checkRank(userID, skill){
       userData[userID].totalLevel++

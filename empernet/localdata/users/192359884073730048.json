@@ -1,0 +1,89 @@
+{
+    "id": "192359884073730048",
+    "rank": "Beginner",
+    "credits": 2000,
+    "sigils": 0,
+    "bankedCredits": 0,
+    "bankedSigils": 0,
+    "Health": {
+        "exp": 0,
+        "name": "Health",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Strength": {
+        "exp": 0,
+        "name": "Strength",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "MartialArts": {
+        "exp": 0,
+        "name": "Martial Arts",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Finance": {
+        "exp": 0,
+        "name": "Finance",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Material": {
+        "exp": 0,
+        "name": "Material",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Math": {
+        "exp": 0,
+        "name": "Math",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Research": {
+        "exp": 0,
+        "name": "Research",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Science": {
+        "exp": 0,
+        "name": "Science",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Social": {
+        "exp": 170,
+        "name": "Social",
+        "rank": "Beginner",
+        "nextRank": "Experienced",
+        "rExp": 1000
+    },
+    "Inventory": {
+        "slot1": "empty",
+        "slot2": "empty",
+        "slot3": "empty",
+        "slot4": "empty",
+        "slot5": "empty",
+        "slot6": "empty",
+        "slot7": "empty",
+        "slot8": "empty",
+        "slot9": "empty",
+        "slot10": "empty",
+        "slot11": "empty",
+        "slot12": "empty",
+        "slot13": "empty",
+        "slot14": "empty",
+        "slot15": "empty"
+    },
+    "trusted": "true"
+}
