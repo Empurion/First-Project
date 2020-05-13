@@ -1,19 +1,13 @@
-var embed = require('./embed.json')
-const Discord = require('discord.js');
-const fs = require('fs')
-const empernet = require('../../empernet/main.js')
+const userQueries = require('../../../database/functions/userQueries.js')
 
+async function command(args, DiscordUser, userID, message, DiscordServer, Empernet){
 
-
-
-
-async function command(){
-
+    switch(args[1]){
     
-    embed = new Discord.RichEmbed()
-    .setAuthor(client.user.username)
-    .setTitle("Profile")
-    .addField(country,'**Blueprints**')
-}
-
-module.exports = {command}
+        default:
+        userQueries.updateStatus(userID, "roaming")
+        message.reply("You're now roaming")
+        break;
+        
+    } 
+} module.exports = {command}

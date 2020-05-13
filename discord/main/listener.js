@@ -58,13 +58,10 @@ client.on("message", (message) => {
   
 
   var date = new Date();
-var timestamp = date.getTime();
+  var timestamp = date.getTime();
 
-  user.updateStatus(userID, "roaming")
-  users = ""
-  user.getStatus("roaming", function(err, users){
-    console.log(users)
-  });
+
+
 
 
   //Get the discordUser object

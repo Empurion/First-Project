@@ -1,6 +1,5 @@
-const { MessageHandler } = require('discord-message-handler');
-
-const db = require('../../empernet/database/query.js')
+const Discord = require('discord.js');
+const db = require('../../../database/functions/userQueries.js')
 const fs = require('fs');
 const definition = require('../../../database/functions/definitionQueries.js')
 
@@ -9,10 +8,20 @@ const definition = require('../../../database/functions/definitionQueries.js')
 
 
 
-async function command(userID, user, message, client, Empernet){
-    const amount = require('../../empernet/class/data/amount.json')
+async function command(args, DiscordUser, userID, message, DiscordServer, Empernet){
 
-    const args = message.content.trim().split(/ +/g);
+
+let health = 0
+let strength = 0
+let defense = 0
+let martialArts = 0
+let engineering = 0
+let finance = 0
+let math = 0
+let research = 0
+let science = 0
+let social = 0
+let stealth = 0
 
             ////////////////////SECOND WORD
             switch(args[1]){
@@ -21,9 +30,68 @@ async function command(userID, user, message, client, Empernet){
                 //SECOND WORD IS SAY
                 case "say":
     
-                    client.guilds.get("591738224561618969").channels.get(args[2]).send(message.content.split(" ").slice(3).join(" "));
+                    DiscordServer.channels.get(args[2]).send(message.content.split(" ").slice(3).join(" "));
     
                 break;
+
+                case "show":
+
+                    switch(args[2]){
+                        case "resources":
+                            definition.getAllResources(function(err,result){
+                                const embed = new Discord.RichEmbed()
+                                .setAuthor(message.author.username)
+                                .setTitle("All resources")
+                                for (let i = 0; i < result.length; i++){
+                                    let id = result[i].resource_id
+                                    let name = result[i].name
+                                    embed.addField(id, name, true)
+                                }
+                                message.reply(embed)
+                            })
+                            break;
+                        case "company":
+                            break;
+                        case "blueprint":
+                            definition.getAllBlueprints(function(err,result){
+                                const embed = new Discord.RichEmbed()
+                                .setAuthor(message.author.username)
+                                .setTitle("All blueprints")
+                                for (let i = 0; i < result.length; i++){
+                                    let id = result[i].resource_id
+                                    let name = result[i].name
+                                    embed.addField(id, name, true)
+                                }
+                                message.reply(embed)
+                            })
+                            break;
+                        case "item":
+                            definition.getAllitems(function(err,result){
+                                const embed = new Discord.RichEmbed()
+                                .setAuthor(message.author.username)
+                                .setTitle("All items")
+                                for (let i = 0; i < result.length; i++){
+                                    let resourceid = result[i].resource_id
+                                    let name = result[i].name
+                                    embed.addField(resourceid, name, true)
+                                }
+                                message.reply(embed)
+                            })
+                            break;
+                        case "technique":
+                            definition.getAllTechiques(function(err,result){
+                                const embed = new Discord.RichEmbed()
+                                .setAuthor(message.author.username)
+                                .setTitle("All techniques")
+                                for (let i = 0; i < result.length; i++){
+                                    let id = result[i].technique_id
+                                    let name = result[i].name
+                                    embed.addField(id, name, true)
+                                }
+                                message.reply(embed)
+                            })
+                            break;
+                    }
     
     
                 //SECOND WORD IS CREATE
@@ -34,58 +102,110 @@ async function command(userID, user, message, client, Empernet){
     
                         //THIRD WORD IS RESOURCE
                         case "resource":
-                            filepath = './empernet/class/data/amount.json'
-
-                            if(!args[5]){
-                                // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
-                                definition.createResource( args[3], args[4], "0", "0")
-                                message.reply("Created resource:\nid : " + amount.resources + "\nnamed : " + args[3] + " \nrequirments : " + args[4])
-                                client.guilds.get("591738224561618969").channels.get("699753336873943244").send(message.author.username + " has created the following resource\nid : " + amount.resources + " \nname : " + args[3]);
-                                amount.resources++
-                                fs.writeFileSync(filepath, JSON.stringify(amount, null, 4), err=>{
-                                    if (err) throw err;
-                                  });
-
-                            }
-                            if(args[4] === "2"){
-                                // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
-                                definition.createResource( args[3], args[4], args[5], "0")
-                                message.reply("Created resource:\nid : " + amount.resources + "\nnamed : " + args[3] + " \nrequirments : " + args[5] + " and " + args[6])
-                                client.guilds.get("591738224561618969").channels.get("699753336873943244").send(message.author.username + " has created the following resource:\nid : " + amount.resources + " \nname : " + args[3]);
-                                amount.resources++
-                                fs.writeFileSync(filepath, JSON.stringify(amount, null, 4), err=>{
-                                    if (err) throw err;
-                                  });
-
-                            }
-                            if(args[4] === "3"){
-                                // 3 = NAME, 4 = 1ST_REQUIRED_SKILL, 5 = 2ND_REQUIRED_SKILL RANK, 6 = 3ND_REQUIRED_SKILL,
-                                definition.createResource( args[3], args[4], args[5], args[6])
-                                message.reply("Created resource:\nid : " + amount.resources + "\nnamed : " + args[3] + " \nrequirments : " + args[4] + " and " + args[5] + " and " +args[6])
-                                client.guilds.get("591738224561618969").channels.get("699753336873943244").send(message.author.username + " has created the following resource:\nid : " + amount.resources + " \nname : " + args[3]);
-                                amount.resources++
-                                fs.writeFileSync(filepath, JSON.stringify(amount, null, 4), err=>{
-                                    if (err) throw err;
-                                  });
-                            }
+                            var name  = args[3] 
+                            DiscordServer.channels.get("699753336873943244").send(message.author.username + " has created the following resource\nname : " + name);
+                            definition.createResource(name)
                             break;
     
                         //THIRD WORD IS COMPANY
                         case "company":
-
-
-    
+                            
+                            break;
+                        //.empernet create blueprint name 1 2 health 300
                         //THIRD WORD IS BLUEPRINT
                         case "blueprint":
-                            filepath = './empernet/class/data/amount.json'
-                            // 3 = NAME, 4 = TYPE, 5 = ITEM1, 6 = ITEM2,
-                            definition.createBlueprint( args[3], args[4], args[5], args[6])
-                            message.reply("Created resource:\nid : " + amount.blueprints + "\nnamed : " + args[3] + "\ntype : " + args[4] + " \nrequirments : " + args[5] + " and " + args[6])
-                            client.guilds.get("591738224561618969").channels.get("699753336873943244").send(message.author.username + " Has created the following blueprint:\nid : " + amount.blueprints + " \nname : " + args[3]);
-                            amount.blueprints++
-                            fs.writeFileSync(filepath, JSON.stringify(amount, null, 4), err=>{
-                                if (err) throw err;
-                              });
+                            var name = args[3]
+                            var requirement1 = args[4]
+                            var requirement2 = args[5]
+                            for (i = 6; i < args.length; i++){
+                                x = 7;
+                            switch (args[i]){
+                                case "health":
+                                    health = args[x]
+                                    break;
+                                case "strength":
+                                    strength = args[x]
+                                    break;
+                                case "defense":
+                                    defense = args[x]
+                                    break;
+                                case "martialArts":
+                                    martialArts = args[x]
+                                    break;
+                                case "engineering":
+                                    engineering = args[x]
+                                    break;
+                                case "finance":
+                                    finance = args[x]
+                                    break;  
+                                case "math":
+                                    math = args[x]
+                                    break;
+                                case "science":
+                                    science = args[x]
+                                    break;
+                                case "social":
+                                    social = args[x]
+                                    break;
+                                case "stealth":
+                                    stealth = args[x]
+                                    break;
+                            }
+                            x++
+                            }
+                            DiscordServer.channels.get("699753336873943244").send(message.author.username + " has created the following blueprint\nname : " + name + "\nrequirement 1 : " + requirement1 + " \nrequirement 2 : " + requirement2);
+                            definition.createBlueprint(name, requirement1, requirement2, health, strength, defense, martialArts, engineering, finance, math, research, science, social, stealth)
+                            break;
+                        
+                        //THIRD WORD IS ITEM
+                        case "item":
+
+                            break;
+                        //THIRD WORD IS TECHNIQUE
+                        case "technique":
+                            var name = args[3]
+                            var produces = args[4]
+                            for (i = 5; i < args.length;){
+                                x = 6;
+                
+                            switch (args[i]){
+                                case "health":
+                                    health = args[x]
+                                    break;
+                                case "strength":
+                                    strength = args[x]
+                                    break;
+                                case "defense":
+                                    defense = args[x]
+                                    break;
+                                case "martialArts":
+                                    martialArts = args[x]
+                                    break;
+                                case "engineering":
+                                    engineering = args[x]
+                                    break;
+                                case "finance":
+                                    finance = args[x]
+                                    break;  
+                                case "math":
+                                    math = args[x]
+                                    break;
+                                case "science":
+                                    science = args[x]
+                                    break;
+                                case "social":
+                                    social = args[x]
+                                    break;
+                                case "stealth":
+                                    stealth = args[x]
+                                    break;
+                            }
+                            i++
+                            x++
+                            }
+                            DiscordServer.channels.get("699753336873943244").send(message.author.username + " has created the following technique\nname : " + name + "\nproduces : " + produces);
+                            definition.createTechnique(name, produces, health, strength, defense, martialArts, engineering, finance, math, research, science, social, stealth)
+                            break;
                     }
     
                 case "set":

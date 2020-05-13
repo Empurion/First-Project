@@ -36,7 +36,34 @@ async function createUser(userID){
 
 }
 
-async function getStatus(status, callback){
+
+async function getStatus(userID, callback){
+    await db.query(`
+    SELECT status, since
+    FROM user_status 
+    WHERE user_id = ?`, [userID], function(err, result) {
+        if (err) 
+            callback(err,null);
+        else
+            callback(null,result);
+            console.log(result)
+    });
+
+}
+
+async function getLocation(userID, callback){
+    await db.query(`
+    SELECT location
+    FROM user_status
+    WHERE user_id = ?`, [userID], function(err, result){
+        if (err) 
+        callback(err,null);
+    else
+        callback(null,result);
+    });
+}
+
+async function getRoaming(status, callback){
     await db.query(`
     SELECT user_id, since
     FROM user_status 
@@ -46,6 +73,19 @@ async function getStatus(status, callback){
         else
             callback(null,result);
             console.log(result)
+    });
+
+}
+
+async function getCurrency(userID, callback){
+    await db.query(`
+    SELECT *
+    FROM user_currency
+    WHERE user_id = ?`, [userID], function (err,result) {
+        if (err)
+        callback (err,null);
+        else
+        callback(null,result);
     });
 
 }
@@ -71,4 +111,13 @@ async function updateStatus(userID, status){
     WHERE user_id = '${userID}'
     `)
 }
-module.exports = {createUser, getStatus, getUserInventory, updateStatus}
+
+async function updateLocation(userID, location){
+    await db.query(`
+    UPDATE user_status
+    set location = '${location}'
+    WHERE user_id = '${userID}'
+    `)
+}
+
+module.exports = {createUser, getStatus, getLocation, getCurrency, getRoaming, getUserInventory, updateStatus, updateLocation}

@@ -1,180 +1,206 @@
 { 
-    "NorthAmerica": {
+  "NorthAmerica": {
+    "name": "North America",
+    "id": "648708966121209860",
+    "categoryId": "648707824381198337",
+    "localchat" : {
+        "name": "local-chat",
+      "id": "648717501093380112"
+    },
+    "roaming" : {
+        "name": "roaming",
+        "id": "648709537498660864"
+    },
+    "shop" : {
+        "name": "shop",
+        "id": "648717284407508995"
+    },
+    "bank" : {
+        "name": "bank",
+        "id": "648710999842488320"
+    },
+    "auctionHouse": {
+        "name": "auction-house",
+        "id": "648710120167178273"
+    },
+      "voice": {
         "name": "North America",
-        "id": "648708966121209860",
-        "categoryId": "648707824381198337",
-        "localchat" : {
-            "name": "local-chat",
-            "id": "648717501093380112"
-        },
-        "roaming" : {
-            "name": "roaming",
-            "id": "648709537498660864"
-        },
-        "shop" : {
-            "name": "shop",
-            "id": "648717284407508995"
-        },
-        "bank" : {
-            "name": "bank",
-            "id": "648710999842488320"
-        },
-        "auctionHouse": {
-            "name": "auction-house",
-            "id": "648710120167178273"
-        },
-        "voice": {
-            "name": "North America",
-            "id": "700128555920654397"
-        }
+        "id": "700128555920654397"
+      },
+      "cords": {
+        "xcord": "54",
+        "ycord": "105"
+      }
     },
 
 
-    "SouthAmerica": {
-        "name":  "South America",
-        "id": "648708990800363540",
-        "categoryId": "648707868211806239",
-        "localchat" : {
-            "name": "local-chat",
-            "id": "648717533221879827"
-        },
-        "roaming" : {
-            "name": "roaming",
-            "id": "648709552216211467"
-        },
-        "shop" : {
-            "name": "shop",
-            "id": "648717316842061834"
-        },
-        "bank" : {
-            "name": "bank",
-            "id": "648711011511173120"
-        },
-        "auctionHouse": {
-            "name": "auction-house",
-            "id": "648710037602172948"
-        },
-        "voice": {
-            "name": "South America",
-            "id": "700128527009185930"
-        }
+  "SouthAmerica": {
+    "name": "South America",
+    "id": "648708990800363540",
+    "categoryId": "648707868211806239",
+    "localchat": {
+      "name": "local-chat",
+      "id": "648717533221879827"
     },
-    "Europe": {
-        "name": "Europe",
-        "id": "648708922361905152",
-        "categoryId": "648707767909089300",
-        "localchat" : {
-            "name": "local-chat",
-            "id": "648717555531382784"
-        },
-        "roaming" : {
-            "name": "roaming",
-            "id": "648709925026922517"
-        },
-        "shop" : {
-            "name": "shop",
-            "id": "699638248812707860"
-        },
-        "bank" : {
-            "name": "bank",
-            "id": "648711020940099585"
-        },
-        "auctionHouse": {
-            "name": "auction-house",
-            "id": "648710054304022528"
-        },
-        "voice": {
-            "name": "Europe",
-            "id": "700128491647271003"
-        }
+    "roaming": {
+      "name": "roaming",
+      "id": "648709552216211467"
     },
-    "Africa": {
-        "name": "Afica",
-        "id": "648709056588152862",
-        "categoryId": "648707886935179285",
-        "localchat" : {
-            "name": "local-chat",
-            "id": "648717586090950657"
-        },
-        "roaming" : {
-            "name": "roaming",
-            "id": "648709936989208596"
-        },
-        "shop" : {
-            "name": "shop",
-            "id": "648717347917398026"
-        },
-        "bank" : {
-            "name": "bank",
-            "id": "648711034718388235"
-        },
-        "auctionHouse": {
-            "name": "auction-house",
-            "id": "648710071064330270"
-        },
-        "voice": {
-            "name": "South America",
-            "id": "700128459107729409"
-        }
+    "shop": {
+      "name": "shop",
+      "id": "648717316842061834"
     },
-    "Asia": {
-        "name": "Asia",
-        "id": "648708946374426665",
-        "categoryId": "648707843926786058",
-        "localchat" : {
-            "name": "local-chat",
-            "id": "648717606265815081"
-        },
-        "roaming" : {
-            "name": "roaming",
-            "id": "648710543032582144"
-        },
-        "shop" : {
-            "name": "shop",
-            "id": "648717364367589395"
-        },
-        "bank" : {
-            "name": "bank",
-            "id": "648711044465688590"
-        },
-        "auctionHouse": {
-            "name": "auction-house",
-            "id": "648710570752606257"
-        },
-        "voice": {
-            "name": "South America",
-            "id": "700128426387832842"
-        }
+    "bank": {
+      "name": "bank",
+      "id": "648711011511173120"
     },
-    "Australia": {
-        "name": "Australia",
-        "id": "648709014385066000",
-        "categoryId": "648708018988515330",
-        "localchat" : {
-            "name": "local-chat",
-            "id": "648717643288674304"
-        },
-        "roaming" : {
-            "name": "roaming",
-            "id": "648710554034110490"
-        },
-        "shop" : {
-            "name": "shop",
-            "id": "648717382726189074"
-        },
-        "bank" : {
-            "name": "bank",
-            "id": "648711056541351947"
-        },
-        "auctionHouse": {
-            "name": "auction-house",
-            "id": "648710587647524877"
-        },
-        "voice": {
-            "name": "South America",
-            "id": "700128384176488551"
-        }
+    "auctionHouse": {
+      "name": "auction-house",
+      "id": "648710037602172948"
     },
+    "voice": {
+      "name": "South America",
+      "id": "700128527009185930"
+    },
+    "cords": {
+      "xcord": "9",
+      "ycord": "55"
+    }
+
+
+  },
+  "Europe": {
+    "name": "Europe",
+    "id": "648708922361905152",
+    "categoryId": "648707767909089300",
+    "localchat": {
+      "name": "local-chat",
+      "id": "648717555531382784"
+    },
+    "roaming": {
+      "name": "roaming",
+      "id": "648709925026922517"
+    },
+    "shop": {
+      "name": "shop",
+      "id": "699638248812707860"
+    },
+    "bank": {
+      "name": "bank",
+      "id": "648711020940099585"
+    },
+    "auctionHouse": {
+      "name": "auction-house",
+      "id": "648710054304022528"
+    },
+    "voice": {
+      "name": "Europe",
+      "id": "700128491647271003"
+    },
+    "cords": {
+      "xcord": "54",
+      "ycord": "15"
+    }
+  },
+  "Africa": {
+    "name": "Afica",
+    "id": "648709056588152862",
+    "categoryId": "648707886935179285",
+    "localchat": {
+      "name": "local-chat",
+      "id": "648717586090950657"
+    },
+    "roaming": {
+      "name": "roaming",
+      "id": "648709936989208596"
+    },
+    "shop": {
+      "name": "shop",
+      "id": "648717347917398026"
+    },
+    "bank": {
+      "name": "bank",
+      "id": "648711034718388235"
+    },
+    "auctionHouse": {
+      "name": "auction-house",
+      "id": "648710071064330270"
+    },
+    "voice": {
+      "name": "South America",
+      "id": "700128459107729409"
+    },
+    "cords": {
+      "xcord": "9",
+      "ycord": "35"
+    }
+  },
+  "Asia": {
+    "name": "Asia",
+    "id": "648708946374426665",
+    "categoryId": "648707843926786058",
+    "localchat": {
+      "name": "local-chat",
+      "id": "648717606265815081"
+    },
+    "roaming": {
+      "name": "roaming",
+      "id": "648710543032582144"
+    },
+    "shop": {
+      "name": "shop",
+      "id": "648717364367589395"
+    },
+    "bank": {
+      "name": "bank",
+      "id": "648711044465688590"
+    },
+    "auctionHouse": {
+      "name": "auction-house",
+      "id": "648710570752606257"
+    },
+    "voice": {
+      "name": "South America",
+      "id": "700128426387832842"
+    },
+    "cords": {
+      "xcord": "34",
+      "ycord": "100"
+    }
+  },
+  "Australia": {
+    "name": "Australia",
+    "id": "648709014385066000",
+    "categoryId": "648708018988515330",
+    "localchat": {
+      "name": "local-chat",
+      "id": "648717643288674304"
+    },
+    "roaming": {
+      "name": "roaming",
+      "id": "648710554034110490"
+    },
+    "shop": {
+      "name": "shop",
+      "id": "648717382726189074"
+    },
+    "bank": {
+      "name": "bank",
+      "id": "648711056541351947"
+    },
+    "auctionHouse": {
+      "name": "auction-house",
+      "id": "648710587647524877"
+    },
+    "voice": {
+      "name": "South America",
+      "id": "700128384176488551"
+    },
+    "cords": {
+      "xcord": "25",
+      "ycord": "134"
+    }
+  },
     "Global": {
         "name": "Global",
         "id": "none",
